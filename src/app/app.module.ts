@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { AllHeroesComponent } from './components/all-heroes/all-heroes.component';
 import { AllVillainsComponent } from './components/all-villains/all-villains.component';
@@ -14,13 +15,10 @@ import { VillainStructureComponent } from './components/villain-structure/villai
     AllHeroesComponent,
     AllVillainsComponent,
     HeroStructureComponent,
-    VillainStructureComponent
+    VillainStructureComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
