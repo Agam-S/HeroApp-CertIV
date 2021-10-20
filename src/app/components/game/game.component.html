@@ -1,0 +1,14 @@
+<h1>Hero Game</h1>
+
+<div class="characters">
+  <select name="heroSelector" id="heroSelector">
+    <option *ngFor="let hero of heroList; let i = index" [value]="i">
+      {{ hero.hname }}
+    </option>
+  </select>
+  <select name="villainSelector" id="villainSelector">
+    <option *ngFor="let villain of villainList; let i = index" [value]="i">
+      {{ villain.vName }}
+    </option>
+  </select>
+</div>

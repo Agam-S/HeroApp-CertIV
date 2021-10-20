@@ -8,6 +8,7 @@ import { AllHeroesComponent } from './components/all-heroes/all-heroes.component
 import { AllVillainsComponent } from './components/all-villains/all-villains.component';
 import { HeroStructureComponent } from './components/hero-structure/hero-structure.component';
 import { VillainStructureComponent } from './components/villain-structure/villain-structure.component';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { VillainStructureComponent } from './components/villain-structure/villai
     AllVillainsComponent,
     HeroStructureComponent,
     VillainStructureComponent,
+    GameComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
