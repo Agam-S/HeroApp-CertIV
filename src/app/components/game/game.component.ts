@@ -33,9 +33,13 @@ export class GameComponent implements OnInit {
     this._heroesService.GetHero().subscribe((hero) => {
       this.heroList = hero;
     });
-    this.heroSelected = this.heroList[0];
+    if (this.heroList != null) {
+      this.heroSelected = this.heroList[0];
+    }
 
-    this.villainSelected = this.villainList[0];
+    if (this.villainList != null) {
+      this.villainSelected = this.villainList[0];
+    }
   }
 
   Selector(): void {
@@ -50,9 +54,7 @@ export class GameComponent implements OnInit {
   }
 
   Fight(): void {
-    const combatLog: HTMLElement = <HTMLElement>(
-      document.getElementById('combatLog')
-    );
+    const combatLog: HTMLElement = <HTMLElement>document.getElementById('log');
     this.hp();
     this.uses();
     if (

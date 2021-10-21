@@ -25,13 +25,13 @@
 </div>
 <hr />
 <p
-  id="battle-text"
-  class="battleText"
+  id="game"
+  class="game"
   *ngIf="heroSelected != null && villainSelected != null"
 >
   {{ heroSelected.hname }} is attacking {{ villainSelected.vName }}
 </p>
-<p id="combatLog" class="combatLog">""</p>
+<p id="log" class="log">""</p>
 <div class="button">
   <button id="attack-btn" class="attackBtn" (click)="Fight()">Attack</button>
 </div>

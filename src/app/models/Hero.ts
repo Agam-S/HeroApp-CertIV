@@ -1,5 +1,13 @@
 import { Villain } from './Villain';
 
+export interface IHero {
+  hid: number;
+  hname: string;
+  minvalue: number;
+  maxvalue: number;
+  uses: number;
+}
+
 export class Hero {
   hid: number;
   hname: string;
