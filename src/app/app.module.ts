@@ -11,6 +11,7 @@ import { VillainStructureComponent } from './components/villain-structure/villai
 import { GameComponent } from './components/game/game.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavComponent } from './components/nav/nav.component';
+import { NewHeroComponent } from './components/new-hero/new-hero.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NavComponent } from './components/nav/nav.component';
     GameComponent,
     MainPageComponent,
     NavComponent,
+    NewHeroComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -16,4 +16,7 @@ export class HeroService {
   GetHero(): Observable<Hero[]> {
     return this._http.get<Hero[]>(this.webUrl);
   }
+  PostHero(hero: Hero): Observable<Hero> {
+    return this._http.post<Hero>(this.webUrl, hero);
+  }
 }

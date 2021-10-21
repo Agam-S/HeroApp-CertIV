@@ -8,6 +8,10 @@
       {{ hero.hname }}
     </option>
   </select>
+  <p class="border" *ngIf="heroSelected != null && villainSelected != null">
+    MinValue: {{ heroSelected.minvalue }} || MaxValue:
+    {{ heroSelected.maxvalue }} || Uses Left: {{ heroSelected.uses }}
+  </p>
   <hr />
   <h3>SELECT A VILLAIN</h3>
   <select name="villainSelector" id="villainSelector" (change)="Selector()">
@@ -15,6 +19,9 @@
       {{ villain.vName }}
     </option>
   </select>
+  <p class="border" *ngIf="heroSelected != null && villainSelected != null">
+    HitPoints: {{ villainSelected.hitPoints }}
+  </p>
 </div>
 <hr />
 <p
