@@ -1,3 +1,5 @@
+import { Villain } from './Villain';
+
 export class Hero {
   hid: number;
   hname: string;
@@ -18,15 +20,18 @@ export class Hero {
     this.maxvalue = maxvalue;
     this.uses = uses;
   }
-  // usesOfHero() {
-  //   if (this.uses > 0) {
-  //     this.uses--;
-  //   } else if (this.uses == 0) {
-  //     this.heroActive = false;
-  //   }
-  //   return this.diceRoll();
-  // }
-  diceRoll() {
+  usesOfHero(v: Villain) {
+    if (this.uses > 0 && v.hitPoints > 0) {
+      let damage: number = this.diceRoll();
+      v.damageTaken(damage);
+      this.uses--;
+      return damage;
+    } else {
+      return 0;
+    }
+  }
+
+  diceRoll(): number {
     return (
       Math.floor(Math.random() * (this.maxvalue - this.minvalue + 1)) +
       this.minvalue

@@ -8,4 +8,10 @@ export class Villain {
     this.vName = vName;
     this.hitPoints = hitPoints;
   }
+  damageTaken(damage: number): void {
+    this.hitPoints -= damage;
+    if (this.hitPoints < 0) {
+      this.hitPoints = 0;
+    }
+  }
 }

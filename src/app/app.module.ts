@@ -9,6 +9,8 @@ import { AllVillainsComponent } from './components/all-villains/all-villains.com
 import { HeroStructureComponent } from './components/hero-structure/hero-structure.component';
 import { VillainStructureComponent } from './components/villain-structure/villain-structure.component';
 import { GameComponent } from './components/game/game.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { GameComponent } from './components/game/game.component';
     HeroStructureComponent,
     VillainStructureComponent,
     GameComponent,
+    MainPageComponent,
+    NavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

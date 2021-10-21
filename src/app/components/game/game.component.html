@@ -1,14 +1,30 @@
 <h1>Hero Game</h1>
 
 <div class="characters">
-  <select name="heroSelector" id="heroSelector">
+  <h3>SELECT A HERO</h3>
+
+  <select name="heroSelector" id="heroSelector" (change)="Selector()">
     <option *ngFor="let hero of heroList; let i = index" [value]="i">
       {{ hero.hname }}
     </option>
   </select>
-  <select name="villainSelector" id="villainSelector">
+  <hr />
+  <h3>SELECT A VILLAIN</h3>
+  <select name="villainSelector" id="villainSelector" (change)="Selector()">
     <option *ngFor="let villain of villainList; let i = index" [value]="i">
       {{ villain.vName }}
     </option>
   </select>
+</div>
+<hr />
+<p
+  id="battle-text"
+  class="battleText"
+  *ngIf="heroSelected != null && villainSelected != null"
+>
+  {{ heroSelected.hname }} is attacking {{ villainSelected.vName }}
+</p>
+<p id="combatLog" class="combatLog">""</p>
+<div class="button">
+  <button id="attack-btn" class="attackBtn" (click)="Fight()">Attack</button>
 </div>

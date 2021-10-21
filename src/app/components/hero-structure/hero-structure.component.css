@@ -1,6 +1,10 @@
 .hero {
-  /* display: flex; */
+  display: inline-block;
   margin: 10px;
   border: 10px;
   border-style: double;
+}
+
+p {
+  padding: 5px;
 }

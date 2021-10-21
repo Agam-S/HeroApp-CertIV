@@ -1,0 +1,15 @@
+.characters,
+h1 {
+  /* display: flex; */
+  text-align: center;
+}
+
+h3,
+select,
+option,
+p,
+.button,
+button {
+  text-align: center;
+  font-size: 20px;
+}
