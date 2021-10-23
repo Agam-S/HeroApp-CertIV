@@ -14,25 +14,21 @@ export class Hero {
   minvalue: number;
   maxvalue: number;
   uses: number;
+  usesRemaining: number;
 
-  constructor(
-    hid: number,
-    hname: string,
-    minvalue: number,
-    maxvalue: number,
-    uses: number
-  ) {
-    this.hid = hid;
-    this.hname = hname;
-    this.minvalue = minvalue;
-    this.maxvalue = maxvalue;
-    this.uses = uses;
+  constructor(IHero: IHero) {
+    this.hid = IHero.hid;
+    this.hname = IHero.hname;
+    this.minvalue = IHero.minvalue;
+    this.maxvalue = IHero.maxvalue;
+    this.uses = IHero.uses;
+    this.usesRemaining = this.uses;
   }
-  usesOfHero(v: Villain) {
-    if (this.uses > 0 && v.hitPoints > 0) {
+  attack(villain: Villain) {
+    if (this.usesRemaining > 0 && villain.hitPoints > 0) {
       let damage: number = this.diceRoll();
-      v.damageTaken(damage);
-      this.uses--;
+      villain.damageTaken(damage);
+      this.usesRemaining--;
       return damage;
     } else {
       return 0;

@@ -17,8 +17,8 @@ export class GameComponent implements OnInit {
 
   heroSelected: Hero;
   villainSelected: Villain;
-  UsesLeft: number = 0;
-  hpLeft: number = 0;
+  UsesLeft: number;
+  hpLeft: number;
 
   constructor(
     private _villainService: VillainService,
@@ -52,50 +52,17 @@ export class GameComponent implements OnInit {
     this.heroSelected = this.heroList[heroSelector.selectedIndex];
     this.villainSelected = this.villainList[villainSelector.selectedIndex];
   }
-
+  // function that uses Hero class's Attack function to deacrese the Villain's hitPoints and usesLeft decreses by 1.
   Fight(): void {
-    const combatLog: HTMLElement = <HTMLElement>document.getElementById('log');
-    this.hp();
-    this.uses();
     if (
       (this.heroSelected != null || this.villainSelected != null) &&
       this.UsesLeft > 0
     ) {
-      let damage: number = this.heroSelected.usesOfHero(this.villainSelected);
-      combatLog.innerHTML =
-        this.heroSelected.hname +
-        ' !!! dealt ' +
-        damage +
-        ' damage to ' +
-        this.villainSelected.vName +
-        ' !!!';
-      this.UsesLeft--;
-      this.hpLeft -= damage;
-      console.log(damage);
-    }
-    this.Win();
-  }
-  hp(): void {
-    this.hpLeft = 0;
-
-    for (let v of this.villainList) {
-      this.hpLeft += v.hitPoints;
-    }
-  }
-  uses(): void {
-    this.UsesLeft = 0;
-    for (let h of this.heroList) {
-      this.UsesLeft += h.uses;
-    }
-  }
-  Win(): void {
-    if (
-      (this.UsesLeft > 0 && this.hpLeft <= 0) ||
-      (this.UsesLeft == 0 && this.hpLeft <= 0)
-    ) {
-      alert('Heroes win. Heroes killed the villains');
-    } else if (this.UsesLeft <= 0 && this.hpLeft > 0) {
-      alert('Villains win. Heroes ran out of turns');
+      let diceRoll: number = this.heroSelected.diceRoll();
+      this.UsesLeft = this.heroSelected.uses - 1;
+      this.hpLeft = this.villainSelected.currentHP - diceRoll;
+      console.log(this.UsesLeft);
+      console.log(this.hpLeft);
     }
   }
 }

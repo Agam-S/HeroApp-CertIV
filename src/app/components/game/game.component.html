@@ -10,7 +10,7 @@
   </select>
   <p class="border" *ngIf="heroSelected != null && villainSelected != null">
     MinValue: {{ heroSelected.minvalue }} || MaxValue:
-    {{ heroSelected.maxvalue }} || Uses Left: {{ heroSelected.uses }}
+    {{ heroSelected.maxvalue }} || Uses Left: {{ UsesLeft }}
   </p>
   <hr />
   <h3>SELECT A VILLAIN</h3>
@@ -20,7 +20,8 @@
     </option>
   </select>
   <p class="border" *ngIf="heroSelected != null && villainSelected != null">
-    HitPoints: {{ villainSelected.hitPoints }}
+    HitPoints: {{ villainSelected.hitPoints }} <br />
+    {{ hpLeft }}
   </p>
 </div>
 <hr />
@@ -33,5 +34,5 @@
 </p>
 <p id="log" class="log">""</p>
 <div class="button">
-  <button id="attack-btn" class="attackBtn" (click)="Fight()">Attack</button>
+  <button id="fight" class="fightBtn" (click)="Fight()">Attack</button>
 </div>
