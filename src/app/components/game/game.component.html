@@ -40,7 +40,7 @@
     *ngIf="heroSelected != null && villainSelected != null"
     [disabled]="this.heroSelected.uses <= 0 ? true : null"
     id="fight"
-    class="fightBtn"
+    class="fightBtn btn btn-dark"
     (click)="Fight()"
   >
     Attack

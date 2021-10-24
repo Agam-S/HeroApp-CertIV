@@ -12,6 +12,7 @@ import { GameComponent } from './components/game/game.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NewHeroComponent } from './components/new-hero/new-hero.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { NewHeroComponent } from './components/new-hero/new-hero.component';
     NavComponent,
     NewHeroComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })

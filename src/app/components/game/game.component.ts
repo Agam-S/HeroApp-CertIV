@@ -63,6 +63,7 @@ export class GameComponent implements OnInit {
         this.villainSelected.hitPoints -= randNum;
       } else if (randNum > this.villainSelected.hitPoints) {
         alert('damage op af');
+        this.villainSelected.hitPoints = 0;
       }
       if (this.heroSelected.uses > 0) {
         this.heroSelected.uses--;
@@ -73,23 +74,23 @@ export class GameComponent implements OnInit {
       console.log(this.heroSelected.uses);
       console.log(this.villainSelected.hitPoints);
       console.log(randNum);
-      this.win();
+      // this.win();
     }
   }
-  win(): void {
-    // function that iterates through the villainList and checks if all the hitPoints are 0, then the Heroes Win.
-    if (this.villainList != null) {
-      for (let i = 0; i < this.villainList.length; i++) {
-        if (this.villainList[i].hitPoints <= 0) {
-          alert('Heroes Win!');
-        }
-      }
-    } else if (this.heroList != null) {
-      for (let i = 0; i < this.heroList.length; i++) {
-        if (this.heroList[i].uses <= 0) {
-          console.log('Villains Win!');
-        }
-      }
-    }
-  }
+  // win(): void {
+  // ------> function that iterates through the villainList and checks if all the hitPoints are 0, then the Heroes Win. <------
+  //   if (this.villainList != null) {
+  //     for (let i = 0; i < this.villainList.length; i++) {
+  //       if (this.villainList[i].hitPoints <= 0) {
+  //         alert('Heroes Win!');
+  //       }
+  //     }
+  //   } else if (this.heroList != null) {
+  //     for (let i = 0; i < this.heroList.length; i++) {
+  //       if (this.heroList[i].uses <= 0) {
+  //         console.log('Villains Win!');
+  //       }
+  //     }
+  //   }
+  // }
 }
