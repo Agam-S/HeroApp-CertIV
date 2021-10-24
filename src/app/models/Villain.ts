@@ -10,10 +10,4 @@ export class Villain {
     this.hitPoints = hitPoints;
     this.currentHP = hitPoints;
   }
-  damageTaken(damage: number): void {
-    this.currentHP -= damage;
-    if (this.currentHP < 0) {
-      this.currentHP = 0;
-    }
-  }
 }

@@ -17,8 +17,6 @@ export class GameComponent implements OnInit {
 
   heroSelected: Hero;
   villainSelected: Villain;
-  UsesLeft: number;
-  hpLeft: number;
 
   constructor(
     private _villainService: VillainService,
@@ -52,17 +50,10 @@ export class GameComponent implements OnInit {
     this.heroSelected = this.heroList[heroSelector.selectedIndex];
     this.villainSelected = this.villainList[villainSelector.selectedIndex];
   }
-  // function that uses Hero class's Attack function to deacrese the Villain's hitPoints and usesLeft decreses by 1.
+
   Fight(): void {
-    if (
-      (this.heroSelected != null || this.villainSelected != null) &&
-      this.UsesLeft > 0
-    ) {
-      let diceRoll: number = this.heroSelected.diceRoll();
-      this.UsesLeft = this.heroSelected.uses - 1;
-      this.hpLeft = this.villainSelected.currentHP - diceRoll;
-      console.log(this.UsesLeft);
-      console.log(this.hpLeft);
-    }
+    // function that uses selectedHero's uses and decrrases by 1 whenever function is called
+    this.heroSelected.uses--;
+    console.log(this.heroSelected.uses);
   }
 }

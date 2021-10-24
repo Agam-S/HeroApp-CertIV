@@ -24,16 +24,6 @@ export class Hero {
     this.uses = IHero.uses;
     this.usesRemaining = this.uses;
   }
-  attack(villain: Villain) {
-    if (this.usesRemaining > 0 && villain.hitPoints > 0) {
-      let damage: number = this.diceRoll();
-      villain.damageTaken(damage);
-      this.usesRemaining--;
-      return damage;
-    } else {
-      return 0;
-    }
-  }
 
   diceRoll(): number {
     return (
