@@ -31,9 +31,13 @@
 >
   {{ heroSelected.hname }} is attacking {{ villainSelected.vName }}
 </p>
-<p id="log" class="log">""</p>
+<p id="log" class="log" *ngIf="heroSelected != null && villainSelected != null">
+  {{ heroSelected.hname }} rolled {{ villainSelected.currentHP }} & attacked
+  {{ villainSelected.vName }}
+</p>
 <div class="button">
   <button
+    *ngIf="heroSelected != null && villainSelected != null"
     [disabled]="this.heroSelected.uses <= 0 ? true : null"
     id="fight"
     class="fightBtn"
