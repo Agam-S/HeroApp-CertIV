@@ -53,7 +53,17 @@ export class GameComponent implements OnInit {
 
   Fight(): void {
     // function that uses selectedHero's uses and decrrases by 1 whenever function is called
-    this.heroSelected.uses--;
-    console.log(this.heroSelected.uses);
+    if (this.heroSelected != null && this.villainSelected != null) {
+      var randNum = Math.floor(Math.random() * 5 - 0) + 0;
+      if (randNum < this.villainSelected.hitPoints) {
+        this.villainSelected.hitPoints -= randNum;
+      } else if (randNum > this.villainSelected.hitPoints) {
+        alert('damage op af');
+      }
+      this.heroSelected.uses--;
+      console.log(this.heroSelected.uses);
+      console.log(this.villainSelected.hitPoints);
+      console.log(randNum);
+    }
   }
 }
