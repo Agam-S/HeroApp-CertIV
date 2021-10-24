@@ -1,3 +1,8 @@
+export interface IVillain {
+  villainID: number;
+  vName: string;
+  hitPoints: number;
+}
 export class Villain {
   villainID: number;
   vName: string;

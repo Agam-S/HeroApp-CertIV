@@ -13,6 +13,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NewHeroComponent } from './components/new-hero/new-hero.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NewVillainComponent } from './components/new-villain/new-villain.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainPageComponent,
     NavComponent,
     NewHeroComponent,
+    NewVillainComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule],
   providers: [],

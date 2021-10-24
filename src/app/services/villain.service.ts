@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Hero } from '../models/Hero';
-import { Villain } from '../models/Villain';
+import { IVillain, Villain } from '../models/Villain';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +16,8 @@ export class VillainService {
 
   GetVillain(): Observable<Villain[]> {
     return this._http.get<Villain[]>(this.webUrl);
+  }
+  PostVillain(villain: IVillain): Observable<IVillain> {
+    return this._http.post<IVillain>(this.webUrl, villain);
   }
 }
