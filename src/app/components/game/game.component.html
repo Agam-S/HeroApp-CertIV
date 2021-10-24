@@ -33,5 +33,12 @@
 </p>
 <p id="log" class="log">""</p>
 <div class="button">
-  <button id="fight" class="fightBtn" (click)="Fight()">Attack</button>
+  <button
+    [disabled]="this.heroSelected.uses <= 0 ? true : null"
+    id="fight"
+    class="fightBtn"
+    (click)="Fight()"
+  >
+    Attack
+  </button>
 </div>
