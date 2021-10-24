@@ -1,0 +1,22 @@
+.input,
+h5 {
+  display: inline-flex;
+  /* padding: 50px; */
+
+  text-align: center;
+}
+h5 {
+  display: flex;
+  padding-right: 10px;
+  justify-self: center;
+}
+
+.row,
+.button,
+.center {
+  text-align: center;
+}
+
+.button {
+  padding-top: 30px;
+}

@@ -25,10 +25,10 @@ export class Hero {
     this.usesRemaining = this.uses;
   }
 
-  diceRoll(): number {
-    return (
-      Math.floor(Math.random() * (this.maxvalue - this.minvalue + 1)) +
-      this.minvalue
-    );
-  }
+  // diceRoll(): number {
+  //   return (
+  //     Math.floor(Math.random() * (this.maxvalue - this.minvalue + 1)) +
+  //     this.minvalue
+  //   );
+  // }
 }

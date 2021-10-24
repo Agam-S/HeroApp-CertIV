@@ -8,7 +8,10 @@
       {{ hero.hname }}
     </option>
   </select>
-  <p class="border" *ngIf="heroSelected != null && villainSelected != null">
+  <p
+    class="border border-success d-inline-flex p-2"
+    *ngIf="heroSelected != null && villainSelected != null"
+  >
     MinValue: {{ heroSelected.minvalue }} || MaxValue:
     {{ heroSelected.maxvalue }} || Uses Left: {{ heroSelected.uses }}
   </p>
@@ -19,7 +22,10 @@
       {{ villain.vName }}
     </option>
   </select>
-  <p class="border" *ngIf="heroSelected != null && villainSelected != null">
+  <p
+    class="border border-danger d-inline-flex p-2"
+    *ngIf="heroSelected != null && villainSelected != null"
+  >
     HitPoints: {{ villainSelected.hitPoints }}
   </p>
 </div>
@@ -32,7 +38,7 @@
   {{ heroSelected.hname }} is attacking {{ villainSelected.vName }}
 </p>
 <p id="log" class="log" *ngIf="heroSelected != null && villainSelected != null">
-  {{ heroSelected.hname }} rolled {{ villainSelected.currentHP }} & attacked
+  {{ heroSelected.hname }} rolled {{ damage }} & attacked
   {{ villainSelected.vName }}
 </p>
 <div class="button">
@@ -40,7 +46,7 @@
     *ngIf="heroSelected != null && villainSelected != null"
     [disabled]="this.heroSelected.uses <= 0 ? true : null"
     id="fight"
-    class="fightBtn btn btn-dark"
+    class="fightBtn btn btn-lg btn-dark"
     (click)="Fight()"
   >
     Attack

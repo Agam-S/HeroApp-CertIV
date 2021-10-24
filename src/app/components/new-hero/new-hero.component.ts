@@ -26,15 +26,32 @@ export class NewHeroComponent implements OnInit {
     let maxvalue = this.maxInput.nativeElement.value;
     let uses = this.usesInput.nativeElement.value;
 
-    this.hero = {
-      hid: Number(hid),
-      hname: hname,
-      minvalue: Number(minvalue),
-      maxvalue: Number(maxvalue),
-      uses: Number(uses),
-    };
-    this._heroService
-      .PostHero(this.hero)
-      .subscribe((res) => console.log('Success', res));
+    if (
+      hid === '' ||
+      hname === '' ||
+      minvalue === '' ||
+      maxvalue === '' ||
+      uses === ''
+    ) {
+      alert('Please fill all the fields');
+      return;
+    } else if (
+      hid != null &&
+      hname != null &&
+      minvalue != null &&
+      maxvalue != null &&
+      uses != null
+    ) {
+      this.hero = {
+        hid: Number(hid),
+        hname: hname,
+        minvalue: Number(minvalue),
+        maxvalue: Number(maxvalue),
+        uses: Number(uses),
+      };
+      this._heroService
+        .PostHero(this.hero)
+        .subscribe((res) => console.log('Success', res));
+    }
   }
 }

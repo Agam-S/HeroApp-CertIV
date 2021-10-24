@@ -14,7 +14,8 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
 export class GameComponent implements OnInit {
   heroList: Hero[];
   villainList: Villain[];
-  hero: Hero;
+  // hero: Hero;
+  damage: number;
   heroSelected: Hero;
   villainSelected: Villain;
 
@@ -58,11 +59,15 @@ export class GameComponent implements OnInit {
       // btn.setAttribute('disabled', 'null');
       // var randNum = this.hero.diceRoll();
       // var randNum = this.heroSelected.diceRoll();
-      var randNum = Math.floor(Math.random() * 5 - 0) + 0;
+      var randNum =
+        Math.floor(
+          Math.random() * this.heroSelected.maxvalue -
+            this.heroSelected.minvalue
+        ) + this.heroSelected.minvalue;
       if (randNum < this.villainSelected.hitPoints) {
         this.villainSelected.hitPoints -= randNum;
       } else if (randNum > this.villainSelected.hitPoints) {
-        alert('damage op af');
+        alert('Critical HIT !.. Villain Down !');
         this.villainSelected.hitPoints = 0;
       }
       if (this.heroSelected.uses > 0) {
@@ -71,6 +76,7 @@ export class GameComponent implements OnInit {
         // btn.setAttribute('disabled', 'true');
         this.heroSelected.uses = 0;
       }
+      this.damage = randNum;
       console.log(this.heroSelected.uses);
       console.log(this.villainSelected.hitPoints);
       console.log(randNum);
