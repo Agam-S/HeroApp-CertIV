@@ -52,3 +52,15 @@
     Attack
   </button>
 </div>
+
+<hr />
+
+<h3>History</h3>
+<div class="history">
+  <p *ngFor="let game of gameList">
+    {{ game.GAMETIME }}
+  </p>
+  <p *ngFor="let game of gameList">
+    {{ game.WHOWON }}
+  </p>
+</div>

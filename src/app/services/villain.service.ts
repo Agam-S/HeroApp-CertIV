@@ -20,4 +20,7 @@ export class VillainService {
   PostVillain(villain: IVillain): Observable<IVillain> {
     return this._http.post<IVillain>(this.webUrl, villain);
   }
+  DeleteVillain(villainID: number) {
+    return this._http.delete<Villain>(this.webUrl + '/' + villainID);
+  }
 }

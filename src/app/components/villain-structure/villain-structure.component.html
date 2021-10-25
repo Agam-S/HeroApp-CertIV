@@ -8,4 +8,10 @@
   <p>
     Damage: <strong>{{ villain.hitPoints }}</strong>
   </p>
+  <button
+    class="btn btn-primary btn-danger"
+    (click)="deleteVillain(villain.villainID)"
+  >
+    Delete this hero
+  </button>
 </div>

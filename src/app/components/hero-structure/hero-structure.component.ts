@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Hero } from 'src/app/models/Hero';
+import { HeroService } from 'src/app/services/hero.service';
 
 @Component({
   selector: 'app-hero-structure',
@@ -9,7 +10,15 @@ import { Hero } from 'src/app/models/Hero';
 export class HeroStructureComponent implements OnInit {
   @Input() hero: Hero;
 
-  constructor() {}
+  constructor(private _heroService: HeroService) {}
 
   ngOnInit(): void {}
+
+  deleteHero(HID: number) {
+    if (confirm('Are you sure you want to delete this Hero?')) {
+      this._heroService
+        .DeleteHero(HID)
+        .subscribe((res) => console.log('Success', res));
+    }
+  }
 }
