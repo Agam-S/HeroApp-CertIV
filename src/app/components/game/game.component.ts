@@ -59,14 +59,13 @@ export class GameComponent implements OnInit {
     this.villainSelected = this.villainList[villainSelector.selectedIndex];
   }
 
-  
-  WinWin() {
-    this.heroList.forEach(Hero) {
-      if (Hero.uses <= 0) {
-        alert('Villains Win!');
-      }
-    }
-  }
+  // WinWin() {
+  //   this.heroList.forEach(Hero) {
+  //     if (Hero.uses <= 0) {
+  //       alert('Villains Win!');
+  //     }
+  //   }
+  // }
 
   // WinCheck() {
   //   if (this.heroList != null) {
