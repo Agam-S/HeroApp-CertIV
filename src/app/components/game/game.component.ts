@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Game } from 'src/app/models/Game';
+
 import { Hero } from 'src/app/models/Hero';
 import { Villain } from 'src/app/models/Villain';
 import { GameService } from 'src/app/services/game.service';
@@ -16,7 +16,7 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
 export class GameComponent implements OnInit {
   heroList: Hero[];
   villainList: Villain[];
-  gameList: Game[];
+
   damage: number;
   heroSelected: Hero;
   villainSelected: Villain;
@@ -25,8 +25,7 @@ export class GameComponent implements OnInit {
 
   constructor(
     private _villainService: VillainService,
-    private _heroesService: HeroService,
-    private _allGamesService: GameService
+    private _heroesService: HeroService
   ) {}
 
   ngOnInit() {
@@ -36,10 +35,7 @@ export class GameComponent implements OnInit {
     this._heroesService.GetHero().subscribe((hero) => {
       this.heroList = hero;
     });
-    this._allGamesService.GetGames().subscribe((game) => {
-      this.gameList = game;
-      console.log(this.gameList);
-    });
+
     if (this.heroList != null) {
       this.heroSelected = this.heroList[0];
     }
@@ -85,19 +81,19 @@ export class GameComponent implements OnInit {
         this.heroSelected.uses = 0;
       }
       this.damage = randNum;
-      console.log(this.heroSelected.uses);
-      console.log(this.villainSelected.hitPoints);
-      console.log(randNum);
+      // console.log(this.heroSelected.uses);
+      // console.log(this.villainSelected.hitPoints);
+      // console.log(randNum);
     }
     this.WinCheck();
   }
 
-  WinCheck(): void {
+  WinCheck() {
     if (this.heroList != null) {
       for (let i = 0; i < this.heroList.length; i++) {
         if (this.heroList[i].uses <= 0) {
           Number(this.heroesDead++);
-          console.log(this.heroesDead);
+          console.log(this.heroList.length);
         }
       }
       if (this.heroesDead == this.heroList.length) {
@@ -113,8 +109,16 @@ export class GameComponent implements OnInit {
       if (this.villainsDead == this.villainList.length) {
         alert('Heroes Win!');
       }
-    } else {
-      alert('Heroes Win!');
+      // } else if (this.villainList != null && this.heroList != null) {
+      //   for (let i = 0; i < this.villainList.length; i++ && let j =0; j < this.heroList.length; j++;) {
+      //     if (this.villainList[i].hitPoints <= 0 && this.heroList[j].uses <= 0) {
+      //       Number(this.villainsDead++);
+      //       Number(this.heroesDead++);
+      //       console.log(this.villainsDead);
+      //     }
+      //   }
+      //   if (this.villainsDead == this.villainList.length && this.heroesDead == this.heroList.length) {
+      //     alert('Heroes Win!');
     }
   }
 }
