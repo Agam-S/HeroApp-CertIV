@@ -17,10 +17,11 @@ export class GameComponent implements OnInit {
   heroList: Hero[];
   villainList: Villain[];
   gameList: Game[];
-  // hero: Hero;
   damage: number;
   heroSelected: Hero;
   villainSelected: Villain;
+  heroesDead: number;
+  villainsDead: number;
 
   constructor(
     private _villainService: VillainService,
@@ -59,30 +60,6 @@ export class GameComponent implements OnInit {
     this.villainSelected = this.villainList[villainSelector.selectedIndex];
   }
 
-  // WinWin() {
-  //   this.heroList.forEach(Hero) {
-  //     if (Hero.uses <= 0) {
-  //       alert('Villains Win!');
-  //     }
-  //   }
-  // }
-
-  // WinCheck() {
-  //   if (this.heroList != null) {
-  //     for (let i = 0; i < this.heroList.length; i++) {
-  //       if (this.heroList[i].uses <= 0) {
-  //         alert('Villains Win!');
-  //       }
-  //     }
-  //   } else if (this.villainList != null) {
-  //     for (let i = 0; i < this.villainList.length; i++) {
-  //       if (this.villainList[i].hitPoints <= 0) {
-  //         console.log('Heroes Win!');
-  //       }
-  //     }
-  //   }
-  // }
-
   Fight(): void {
     // const btn: HTMLElement = <HTMLElement>document.getElementById('fight');
     // function that uses selectedHero's uses and decrrases by 1 whenever function is called
@@ -111,7 +88,33 @@ export class GameComponent implements OnInit {
       console.log(this.heroSelected.uses);
       console.log(this.villainSelected.hitPoints);
       console.log(randNum);
-      // this.WinCheck();
+    }
+    this.WinCheck();
+  }
+
+  WinCheck(): void {
+    if (this.heroList != null) {
+      for (let i = 0; i < this.heroList.length; i++) {
+        if (this.heroList[i].uses <= 0) {
+          Number(this.heroesDead++);
+          console.log(this.heroesDead);
+        }
+      }
+      if (this.heroesDead == this.heroList.length) {
+        alert('Villains Win!');
+      }
+    } else if (this.villainList != null) {
+      for (let i = 0; i < this.villainList.length; i++) {
+        if (this.villainList[i].hitPoints <= 0) {
+          Number(this.villainsDead++);
+          console.log(this.villainsDead);
+        }
+      }
+      if (this.villainsDead == this.villainList.length) {
+        alert('Heroes Win!');
+      }
+    } else {
+      alert('Heroes Win!');
     }
   }
 }

@@ -45,6 +45,7 @@
   <button
     *ngIf="heroSelected != null && villainSelected != null"
     [disabled]="this.heroSelected.uses <= 0 ? true : null"
+    [disabled]="this.villainSelected.hitPoints <= 0 ? true : null"
     id="fight"
     class="fightBtn btn btn-lg btn-dark"
     (click)="Fight()"
@@ -56,11 +57,9 @@
 <hr />
 
 <h3>History</h3>
-<div class="history">
-  <p *ngFor="let game of gameList">
+<div *ngFor="let game of gameList" class="history">
+  <p *ngIf="gameList != null">
     {{ game.GAMETIME }}
-  </p>
-  <p *ngFor="let game of gameList">
     {{ game.WHOWON }}
   </p>
 </div>
