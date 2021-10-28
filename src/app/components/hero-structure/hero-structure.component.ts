@@ -14,10 +14,10 @@ export class HeroStructureComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  deleteHero(HID: number) {
+  deleteHero(hid: number) {
     if (confirm('Are you sure you want to delete this Hero?')) {
       this._heroService
-        .DeleteHero(HID)
+        .DeleteHero(hid)
         .subscribe((res) => console.log('Success', res));
     }
   }

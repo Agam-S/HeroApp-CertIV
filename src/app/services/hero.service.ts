@@ -19,7 +19,7 @@ export class HeroService {
   PostHero(hero: IHero): Observable<IHero> {
     return this._http.post<IHero>(this.webUrl, hero);
   }
-  DeleteHero(HID: number) {
-    return this._http.delete<IHero>(this.webUrl + '/' + HID);
+  DeleteHero(hid: number) {
+    return this._http.delete<Hero>(this.webUrl + '/' + hid);
   }
 }
