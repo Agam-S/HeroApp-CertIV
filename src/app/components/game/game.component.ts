@@ -16,12 +16,11 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
 export class GameComponent implements OnInit {
   heroList: Hero[];
   villainList: Villain[];
-
   damage: number;
   heroSelected: Hero;
   villainSelected: Villain;
-  heroesDead: number;
-  villainsDead: number;
+  heroesDead: number = 0;
+  villainsDead: number = 0;
 
   constructor(
     private _villainService: VillainService,
@@ -89,36 +88,33 @@ export class GameComponent implements OnInit {
   }
 
   WinCheck() {
+    this.heroesDead = 0;
+    this.villainsDead = 0;
     if (this.heroList != null) {
       for (let i = 0; i < this.heroList.length; i++) {
         if (this.heroList[i].uses <= 0) {
-          Number(this.heroesDead++);
-          console.log(this.heroList.length);
+          this.heroesDead++;
+        }
+        if (this.heroesDead === this.heroList.length) {
+          alert('Villains Win!');
         }
       }
-      if (this.heroesDead == this.heroList.length) {
-        alert('Villains Win!');
-      }
-    } else if (this.villainList != null) {
+    }
+    if (this.villainList != null) {
       for (let i = 0; i < this.villainList.length; i++) {
         if (this.villainList[i].hitPoints <= 0) {
-          Number(this.villainsDead++);
-          console.log(this.villainsDead);
+          this.villainsDead++;
+        }
+        if (this.villainsDead === this.villainList.length) {
+          alert('Heroes Win!');
         }
       }
-      if (this.villainsDead == this.villainList.length) {
-        alert('Heroes Win!');
-      }
-      // } else if (this.villainList != null && this.heroList != null) {
-      //   for (let i = 0; i < this.villainList.length; i++ && let j =0; j < this.heroList.length; j++;) {
-      //     if (this.villainList[i].hitPoints <= 0 && this.heroList[j].uses <= 0) {
-      //       Number(this.villainsDead++);
-      //       Number(this.heroesDead++);
-      //       console.log(this.villainsDead);
-      //     }
-      //   }
-      //   if (this.villainsDead == this.villainList.length && this.heroesDead == this.heroList.length) {
-      //     alert('Heroes Win!');
+    }
+    if (
+      this.villainsDead === this.villainList.length &&
+      this.heroesDead === this.heroList.length
+    ) {
+      alert('Heroes Win!');
     }
   }
 }
