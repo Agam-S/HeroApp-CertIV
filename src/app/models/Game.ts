@@ -1,13 +1,13 @@
 export interface IGame {
   gameid: number;
-  gametime: string;
+  gametime: Date;
   whowon: string;
 }
 export class Game {
   gameid: number;
-  gametime: string;
+  gametime: Date;
   whowon: string;
-  constructor(gameid: number, whowon: string, gametime: string) {
+  constructor(gameid: number, whowon: string, gametime: Date) {
     this.gameid = gameid;
     this.gametime = gametime;
     this.whowon = whowon;
