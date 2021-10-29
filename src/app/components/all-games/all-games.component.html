@@ -1,5 +1,12 @@
 <h1>Past Games</h1>
-
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="lol" scope="col">Game Winner</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+</table>
 <app-game-history
   *ngFor="let game of gameList"
   [game]="game"
