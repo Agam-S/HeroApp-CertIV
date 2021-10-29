@@ -64,8 +64,8 @@ export class GameComponent implements OnInit {
       // var randNum = this.heroSelected.diceRoll();
       var randNum =
         Math.floor(
-          Math.random() * this.heroSelected.maxvalue -
-            this.heroSelected.minvalue
+          Math.random() *
+            (this.heroSelected.maxvalue - this.heroSelected.minvalue + 1)
         ) + this.heroSelected.minvalue;
       if (randNum < this.villainSelected.hitPoints) {
         this.villainSelected.hitPoints -= randNum;
