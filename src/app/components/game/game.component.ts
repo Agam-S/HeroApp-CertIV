@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Game } from 'src/app/models/Game';
 
 import { Hero } from 'src/app/models/Hero';
 import { Villain } from 'src/app/models/Villain';
@@ -14,6 +15,7 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
+  // @Input() game: Game;
   heroList: Hero[];
   villainList: Villain[];
   damage: number;

@@ -14,8 +14,8 @@ export class GameService {
     'https://my-json-server.typicode.com/Agam-S/heroesJsonServer/hero';
   constructor(private _http: HttpClient) {}
 
-  GetGames(): Observable<History[]> {
-    return this._http.get<History[]>(this.webUrl);
+  GetGames(): Observable<Game[]> {
+    return this._http.get<Game[]>(this.webUrl);
   }
   PostGame(game: IGame): Observable<IGame> {
     return this._http.post<IGame>(this.webUrl, game);

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllGamesComponent } from './components/all-games/all-games.component';
 import { AllHeroesComponent } from './components/all-heroes/all-heroes.component';
 import { AllVillainsComponent } from './components/all-villains/all-villains.component';
 import { GameComponent } from './components/game/game.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'addHero', component: NewHeroComponent },
   { path: 'addVillain', component: NewVillainComponent },
+  { path: 'gameHistory', component: AllGamesComponent },
 ];
 
 @NgModule({

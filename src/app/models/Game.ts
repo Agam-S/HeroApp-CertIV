@@ -1,15 +1,15 @@
 export interface IGame {
-  GAMEID: number;
-  GAMETIME: Date;
-  WHOWON: string;
+  gameid: number;
+  gametime: string;
+  whowon: string;
 }
 export class Game {
-  GAMEID: number;
-  GAMETIME: Date;
-  WHOWON: string;
-  constructor(GAMEID: number, WHOWON: string, GAMETIME: Date) {
-    this.GAMEID = GAMEID;
-    this.GAMETIME = GAMETIME;
-    this.WHOWON = WHOWON;
+  gameid: number;
+  gametime: string;
+  whowon: string;
+  constructor(gameid: number, whowon: string, gametime: string) {
+    this.gameid = gameid;
+    this.gametime = gametime;
+    this.whowon = whowon;
   }
 }
