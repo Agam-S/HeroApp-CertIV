@@ -130,12 +130,12 @@ export class GameComponent implements OnInit {
     }
     console.log(this.whoWon);
     console.log(this.currentDate);
-    this.game = {
-      gametime: this.currentDate,
-      whowon: this.whoWon,
-    };
-    this._gameService.PostGame(this.game).subscribe((game) => {
-      console.log('Success', game);
-    });
+    // this.game = {
+    //   gametime: this.currentDate,
+    //   whowon: this.whoWon,
+    // };
+    // this._gameService.PostGame(this.game).subscribe((game) => {
+    //   console.log('Success', game);
+    // });
   }
 }

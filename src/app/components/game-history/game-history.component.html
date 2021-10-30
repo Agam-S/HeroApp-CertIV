@@ -8,7 +8,7 @@
   <tbody>
     <tr>
       <td>{{ game.whowon }}</td>
-      <td>{{ game.gametime }}</td>
+      <td>{{ game.gametime | date: "medium" }}</td>
     </tr>
   </tbody>
 </table>
