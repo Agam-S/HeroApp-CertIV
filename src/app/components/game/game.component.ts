@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Game } from 'src/app/models/Game';
 
 import { Hero } from 'src/app/models/Hero';
+import { IGame } from 'src/app/models/Game';
 import { Villain } from 'src/app/models/Villain';
 import { GameService } from 'src/app/services/game.service';
 import { HeroService } from 'src/app/services/hero.service';
@@ -15,6 +16,9 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
   styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
+  whoWon: string = '';
+  currentDate: Date;
+  game: IGame;
   // @Input() game: Game;
   heroList: Hero[];
   villainList: Villain[];
@@ -26,7 +30,8 @@ export class GameComponent implements OnInit {
 
   constructor(
     private _villainService: VillainService,
-    private _heroesService: HeroService
+    private _heroesService: HeroService,
+    private _gameService: GameService
   ) {}
 
   ngOnInit() {
@@ -90,15 +95,17 @@ export class GameComponent implements OnInit {
   }
 
   WinCheck() {
+    this.whoWon = '';
     this.heroesDead = 0;
     this.villainsDead = 0;
+
     if (this.heroList != null) {
       for (let i = 0; i < this.heroList.length; i++) {
         if (this.heroList[i].uses <= 0) {
           this.heroesDead++;
         }
         if (this.heroesDead === this.heroList.length) {
-          alert('Villains Win!');
+          this.whoWon = 'Villains Win';
         }
       }
     }
@@ -108,7 +115,7 @@ export class GameComponent implements OnInit {
           this.villainsDead++;
         }
         if (this.villainsDead === this.villainList.length) {
-          alert('Heroes Win!');
+          this.whoWon = 'Heroes Win';
         }
       }
     }
@@ -116,7 +123,19 @@ export class GameComponent implements OnInit {
       this.villainsDead === this.villainList.length &&
       this.heroesDead === this.heroList.length
     ) {
-      alert('Heroes Win!');
+      this.whoWon = 'Heroes Win';
     }
+    if (this.whoWon != '') {
+      this.currentDate = new Date();
+    }
+    console.log(this.whoWon);
+    console.log(this.currentDate);
+    this.game = {
+      gametime: this.currentDate,
+      whowon: this.whoWon,
+    };
+    this._gameService.PostGame(this.game).subscribe((game) => {
+      console.log('Success', game);
+    });
   }
 }

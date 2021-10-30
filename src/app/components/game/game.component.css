@@ -22,3 +22,8 @@ button {
 .log {
   font-size: 30px;
 }
+
+.winlog {
+  font-size: 45px;
+  border: 1px solid;
+}

@@ -41,6 +41,8 @@
   {{ heroSelected.hname }} rolled {{ damage }} & attacked
   {{ villainSelected.vName }}
 </p>
+
+<p class="winlog">{{ whoWon }}</p>
 <div class="button">
   <button
     *ngIf="heroSelected != null && villainSelected != null"
