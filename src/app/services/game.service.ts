@@ -8,7 +8,7 @@ import { Game } from '../models/Game';
   providedIn: 'root',
 })
 export class GameService {
-  readonly baseUrl = 'https://localhost:5001/Hero';
+  readonly baseUrl = 'https://localhost:5001/game';
   readonly webUrl = 'http://swinburne-swd.somee.com/HeroPhase101/Game';
   readonly aBaseUrl =
     'https://my-json-server.typicode.com/Agam-S/heroesJsonServer/hero';

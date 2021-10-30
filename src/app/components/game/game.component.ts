@@ -17,7 +17,7 @@ import { AllVillainsComponent } from '../all-villains/all-villains.component';
 })
 export class GameComponent implements OnInit {
   whoWon: string = '';
-  currentDate: Date;
+  today = new Date().toISOString;
   game: IGame;
   // @Input() game: Game;
   heroList: Hero[];
@@ -35,6 +35,7 @@ export class GameComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.today);
     this._villainService.GetVillain().subscribe((villain) => {
       this.villainList = villain;
     });
@@ -126,16 +127,14 @@ export class GameComponent implements OnInit {
       this.whoWon = 'Heroes Win';
     }
     if (this.whoWon != '') {
-      this.currentDate = new Date();
+      this.game = {
+        gametime: this.today,
+        whowon: this.whoWon,
+      };
+      this._gameService.PostGame(this.game).subscribe((game) => {
+        console.log('Success', game);
+      });
     }
     console.log(this.whoWon);
-    console.log(this.currentDate);
-    // this.game = {
-    //   gametime: this.currentDate,
-    //   whowon: this.whoWon,
-    // };
-    // this._gameService.PostGame(this.game).subscribe((game) => {
-    //   console.log('Success', game);
-    // });
   }
 }
