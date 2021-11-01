@@ -19,6 +19,8 @@ export class GameComponent implements OnInit {
   whoWon: string = '';
   today: Date = new Date();
   game: IGame;
+  exampledate = new Date();
+  isoString = this.exampledate.toISOString();
   // @Input() game: Game;
   heroList: Hero[];
   villainList: Villain[];
@@ -128,7 +130,7 @@ export class GameComponent implements OnInit {
     }
     if (this.whoWon != '') {
       this.game = {
-        gametime: this.today,
+        gametime: this.isoString,
         whowon: this.whoWon,
       };
       this._gameService.PostGame(this.game).subscribe((game) => {

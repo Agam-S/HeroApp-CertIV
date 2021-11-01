@@ -1,11 +1,11 @@
 export interface IGame {
-  gametime: Date;
+  gametime: any;
   whowon: string;
 }
 export class Game {
-  gametime: Date;
+  gametime: any;
   whowon: string;
-  constructor(whowon: string, gametime: Date) {
+  constructor(whowon: string, gametime: any) {
     this.gametime = gametime;
     this.whowon = whowon;
   }

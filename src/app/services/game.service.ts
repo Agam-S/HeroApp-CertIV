@@ -18,6 +18,6 @@ export class GameService {
     return this._http.get<Game[]>(this.webUrl);
   }
   PostGame(game: IGame): Observable<IGame> {
-    return this._http.post<IGame>(this.baseUrl, game);
+    return this._http.post<IGame>(this.webUrl, game);
   }
 }
