@@ -8,6 +8,6 @@
   </thead>
 </table>
 <app-game-history
-  *ngFor="let game of gameList.slice().reverse()"
+  *ngFor="let game of gameList.reverse()"
   [game]="game"
 ></app-game-history>

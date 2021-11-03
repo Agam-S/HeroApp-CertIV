@@ -9,6 +9,7 @@ import { HeroService } from 'src/app/services/hero.service';
 import { VillainService } from 'src/app/services/villain.service';
 import { AllHeroesComponent } from '../all-heroes/all-heroes.component';
 import { AllVillainsComponent } from '../all-villains/all-villains.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-game',
@@ -19,8 +20,13 @@ export class GameComponent implements OnInit {
   whoWon: string = '';
   today: Date = new Date();
   game: IGame;
-  exampledate = new Date();
-  isoString = this.exampledate.toISOString();
+  // exampledate = new Date();
+  // isoString = this.exampledate.toISOString();
+  to = new DatePipe('en-Us').transform(
+    this.today,
+    'yyyy-MM-ddThh:mm:ss',
+    'UTC+11'
+  );
   // @Input() game: Game;
   heroList: Hero[];
   villainList: Villain[];
@@ -37,7 +43,7 @@ export class GameComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.today.getTimezoneOffset());
+    // console.log(this.exampledate);
     this._villainService.GetVillain().subscribe((villain) => {
       this.villainList = villain;
     });
@@ -130,7 +136,7 @@ export class GameComponent implements OnInit {
     }
     if (this.whoWon != '') {
       this.game = {
-        gametime: this.isoString,
+        gametime: this.to,
         whowon: this.whoWon,
       };
       this._gameService.PostGame(this.game).subscribe((game) => {
